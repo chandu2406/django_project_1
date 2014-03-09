@@ -1,7 +1,9 @@
-from tastypie.resources import ModelResource
-from tastypie.authorization import Authorization
 from django.contrib.auth.models import User
-from tastypie.authentication import BasicAuthentication
+from tastypie.authorization import Authorization
+from tastypie import fields
+from tastypie.resources import ModelResource, ALL, ALL_WITH_RELATIONS
+
+
 
 
 class UserResource(ModelResource):
@@ -9,5 +11,6 @@ class UserResource(ModelResource):
         queryset = User.objects.all()
         resource_name = 'user'
         excludes = ['email', 'password', 'is_active', 'is_staff', 'is_superuser']
-        authorization= Authorization()
-        
+        filtering = {
+            'username': ALL,
+        }
