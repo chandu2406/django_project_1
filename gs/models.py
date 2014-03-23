@@ -93,6 +93,11 @@ class Review(models.Model):
 	hid = models.ForeignKey(House)
 	code = models.ForeignKey(Review_Code)
 	value = models.CharField(max_length=200)
+	created = models.DateTimeField(auto_now_add=True)
+	unique_together = ("uid", "hid", "code")
+	def __unicode__(self):
+		return str(self.id)
+
 
     
 

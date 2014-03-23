@@ -1,6 +1,9 @@
 from django.conf.urls import patterns, include, url
 from django_project.api import UserResource
 from tastypie.api import Api
+from django_project.views import *
+
+
 
 from django.contrib import admin
 admin.autodiscover()
@@ -15,8 +18,13 @@ urlpatterns = patterns('',
     # url(r'^$', 'django_project.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    url(r'^$', main_page),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/', include(v1_api.urls)),
-    #url(r'^gs/', ),
+    url(r'^gs/', include('gs.urls')),
+    url(r'^login/$', 'django.contrib.auth.views.login'),
+    url(r'^logout/$', logout_page),
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
+        {'document_root': 'static'}),
 
 )

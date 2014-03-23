@@ -23,6 +23,8 @@ SECRET_KEY = '58h)2+6%a!26_qp55fbl)bu11b%phy5)^eicflj0ea#+r)sf3p'
 DEBUG = True
 
 TEMPLATE_DEBUG = True
+LOGIN_URL = '/login/'
+
 
 ALLOWED_HOSTS = []
 
@@ -90,3 +92,7 @@ DATABASES = {
         'PORT': '',
     }
 }
+
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),)

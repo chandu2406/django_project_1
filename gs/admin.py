@@ -30,7 +30,7 @@ class Review_CodeAdmin(admin.ModelAdmin):
 	list_display = ('factor_name', 'factor_type', 'factor_value')
 
 class ReviewAdmin(admin.ModelAdmin):
-	list_display = ('uid', 'hid', 'code', 'value')
+	list_display = ('uid', 'hid', 'code', 'value', 'created')
 
 
 # Re-register UserAdmin
