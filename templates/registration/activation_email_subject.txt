@@ -1,0 +1,1 @@
+Activate your Greenscore account - you have {{ expiration_days }} days!

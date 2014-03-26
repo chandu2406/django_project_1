@@ -1,0 +1,15 @@
+{% extends "gs/portal.html" %}
+{% comment %}
+  Main page of the portal.
+{% endcomment %}
+
+{% block title %}
+  Portal
+{% endblock %}
+
+{% block content %}
+  <section>
+    <h2>Welcome, {{ user.username }}</h2>
+    <p>This will list all the homes in the database</p>
+  </section>
+{% endblock %}
