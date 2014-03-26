@@ -1,27 +1,182 @@
-{% extends "base.html" %}
-{% comment %}
-  This is the main template for all portal pages.
-{% endcomment %}
+<!--<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    {% block head %}{% endblock %}
+  </head>
+  <body>
+    {% block body %}{% endblock %}
+  </body>
+</html> -->
+{% load staticfiles %}
+{% url '/gs/' as the_url %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Greenscore</title>
+    <meta name="description" content="description">
+    <meta name="author" content="Greenscore">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static "plugins/bootstrap/bootstrap.css" %}" rel="stylesheet">
+    <link href="{% static "plugins/jquery-ui/jquery-ui.min.css" %}" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+    <link href="{% static "plugins/fancybox/jquery.fancybox.css" %}"rel="stylesheet">
+    <link href="{% static "plugins/fullcalendar/fullcalendar.css"%}" rel="stylesheet">
+    <link href="{% static "plugins/xcharts/xcharts.min.css" %}" rel="stylesheet">
+    <link href="{% static "plugins/select2/select2.css"%}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
+        <script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+<body>
+<!--Start Header-->
+<div id="screensaver">
+  <canvas id="canvas"></canvas>
+  <i class="fa fa-lock" id="screen_unlock"></i>
+</div>
+<div id="modalbox">
+  <div class="devoops-modal">
+    <div class="devoops-modal-header">
+      <div class="modal-header-name">
+        <span>Basic table</span>
+      </div>
+      <div class="box-icons">
+        <a class="close-link">
+          <i class="fa fa-times"></i>
+        </a>
+      </div>
+    </div>
+    <div class="devoops-modal-inner">
+    </div>
+    <div class="devoops-modal-bottom">
+    </div>
+  </div>
+</div>
+<header class="navbar">
+  <div class="container-fluid expanded-panel">
+    <div class="row">
+      <div id="logo" class="col-xs-12 col-sm-2">
+        <a href="/login/">Greenscore</a>
+      </div>
+      <div id="top-panel" class="col-xs-12 col-sm-10">
+        <div class="row">
+          <div class="col-xs-8 col-sm-4">
+            <a href="#" class="show-sidebar">
+              <i class="fa fa-bars"></i>
+            </a>
+            <div id="search">
+              <input type="text" placeholder="search"/>
+              <i class="fa fa-search"></i>
+            </div>
+          </div>
+          <div class="col-xs-4 col-sm-8 top-panel-right">
+            <ul class="nav navbar-nav pull-right panel-menu">
+              
+              
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle account" data-toggle="dropdown">
+                  <div class="avatar">
+                    <img src="{% static 'img/avatar.png' %}" class="img-rounded" alt="avatar" />
+                  </div>
+                  <i class="fa fa-angle-down pull-right"></i>
+                  <div class="user-mini pull-right">
+                    <span class="welcome">Welcome,</span>
+                    <span>{{user.username}}</span>
+                  </div>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-user"></i>
+                      <span class="hidden-sm text">Profile</span>
+                    </a>
+                  </li>
+                  
+                  <li>
+                    <a href="../{{request.get_host}}logout">
+                      <i class="fa fa-power-off"></i>
+                      <span class="hidden-sm text">Logout</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!--End Header-->
+<!--Start Container-->
+<div id="main" class="container-fluid">
+  <div class="row">
+    <div id="sidebar-left" class="col-xs-2 col-sm-2">
+      <ul class="nav main-menu">
+        <li>
+          <a href="dashboard/">
+            <i class="fa fa-dashboard"></i>
+            <span class="hidden-xs">Dashboard</span>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a href="../gs/allhomes/">
+           
+             <i class="fa fa-home"></i>
+             <span class="hidden-xs">All Homes</span>
+          </a>
+        </li>
 
-{% block head %}
-  <title>Django Consultants | {% block title %}{% endblock %}</title>
-{% endblock %}
+         <li>
+          <a href="comparison/">           
+             <i class="fa fa-th-large"></i>
+             <span class="hidden-xs">Comparison</span>
+          </a>
+        </li>
 
-{% block body %}
-  <header>
-    <h1>Django Consultants | Web Portal</h1>
-  </header>
+        <li>
+          <a href="myhomes/">
+           
+             <i class="fa fa-user"></i>
+             <span class="hidden-xs">My Homes</span>
+          </a>
+        </li>       
 
-  <section>
-    <ul>
-      <li><a href="/">home</a></li>
-      <li><a href="/logout/">logout</a></li>
-    </ul>
-  </section>
-
-  {% block content %}{% endblock %}
-
-  <footer>
-    <span>&copy; 2010, Django Consultants</span>
-  </footer>
-{% endblock %}
+        
+         
+        
+      </ul>
+    </div>
+    <!--Start Content-->
+    
+    <div id="content" class="col-xs-12 col-sm-10">
+      
+     {% block content %}
+     {% endblock %}
+      
+    </div>
+    <!--End Content-->
+    
+  </div>
+</div>
+<!--End Container-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!--<script src="http://code.jquery.com/jquery.js"></script>-->
+<script src=" {% static "plugins/jquery/jquery-2.1.0.min.js" %}"></script>
+<script src="{% static "plugins/jquery-ui/jquery-ui.min.js"%}"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{% static "plugins/bootstrap/bootstrap.min.js"%}"></script>
+<script src="{% static "plugins/justified-gallery/jquery.justifiedgallery.min.js"%}"></script>
+<script src="{% static "plugins/tinymce/tinymce.min.js"%}"></script>
+<script src="{% static "plugins/tinymce/jquery.tinymce.min.js"%}"></script>
+<!-- All functions for this theme + document.ready processing -->
+<script src="{% static "js/devoops.js"%}"></script>
+</body>
+</html>

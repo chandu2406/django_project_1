@@ -25,7 +25,12 @@ DEBUG = True
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
-
+ACCOUNT_ACTIVATION_DAYS=7
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'sharma.cms007@gmail.com'
+EMAIL_HOST_PASSWORD = 'vkvsrleayhmouliamg'
+EMAIL_PORT = 587
 
 # Application definition
 
@@ -36,8 +41,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'tastypie',
     'gs',
+    'registration',
 
 )
 

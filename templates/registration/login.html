@@ -1,39 +1,55 @@
-{% extends "base.html" %}
-{% comment %}
-  Main page to authenticate users.
-{% endcomment %}
 
-{% block head %}
-  <title>Django Consultants | Login</title>
-{% endblock %}
 
-{% block body %}
-  <header>
-    <h1>Django Consultants</h1>
-    <h2>Login Page</h2>
-  </header>
 
-  <section>
-    {% if form.errors %}
-      <p>Your username and password didn't match, please try again.</p>
+{% extends "registration/base.html" %}
+
+
+    {% block head %}
+    <title>Greenscore | Login</title>
+    {% endblock %}
+    
+ {% block body %}
+<div class="container-fluid">
+  <div id="page-login" class="row">
+    <div class="col-xs-12 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+      <div class="text-right">
+        <a href="../../accounts/register" class="txt-default">Need an account?</a>
+      </div>
+      <div class="box">
+        <div class="box-content">
+          <div class="text-center">
+            {% if form.errors %}
+      <button type="button" class="btn btn-danger">Username or Password is wrong</button>
     {% endif %}
+            <h3 class="page-header">Greenscore Login Page</h3>
+          </div>
+          <form method="post" action=".">
+            {% csrf_token %}
+          <div class="form-group">
 
-    <form method="post" action=".">
-      {% csrf_token %}
-      <p>
-        <label for="id_username">Username:</label>
-        {{ form.username }}
-      </p>
-      <p>
-        <label for="id_password">Password:</label>
-        {{ form.password }}
-      </p>
-      {% if next %}
-        <input type="hidden" name="next" value="{{ next }}" />
-      {% else %}
-        <input type="hidden" name="next" value="/portal/" />
-      {% endif %}
-      <input type="submit" value="login" />
-    </form>
-  </section>
-{% endblock %}
+            <label class="control-label">Username</label>
+            {{ form.username }}
+            
+          </div>
+          <div class="form-group">
+            <label class="control-label">Password</label>
+            {{ form.password }}
+            
+          </div>
+          <div class="text-center">
+            <input type="submit" value="Log In" class="btn btn-success btn-block btn-lg" />
+
+            {% if next %}
+  <input type="hidden" name="next" value="{{ next }}" />
+{% else %}
+  <input type="hidden" name="next" value="/gs/" />
+{% endif %}
+          </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ {% endblock %}
+

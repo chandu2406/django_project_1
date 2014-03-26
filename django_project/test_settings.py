@@ -38,8 +38,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
+
     'tastypie',
     'gs',
+    'registration',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -55,7 +58,12 @@ ROOT_URLCONF = 'django_project.urls'
 
 WSGI_APPLICATION = 'django_project.wsgi.application'
 
-
+ACCOUNT_ACTIVATION_DAYS=7
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'sharma.cms007@gmail.com'
+EMAIL_HOST_PASSWORD = 'vkvsrleayhmouliamg'
+EMAIL_PORT = 587
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
