@@ -27,6 +27,12 @@ LOGIN_URL = '/login/'
 
 
 ALLOWED_HOSTS = []
+ACCOUNT_ACTIVATION_DAYS=7
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_PORT = 587
 
 
 # Application definition
@@ -61,8 +67,8 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 ACCOUNT_ACTIVATION_DAYS=7
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'sharma.cms007@gmail.com'
-EMAIL_HOST_PASSWORD = 'vkvsrleayhmouliamg'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases

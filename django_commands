@@ -1,0 +1,55 @@
+Introduction to Django
+
+
+============================
+Step 0: Make a drectory for your project
+mkdir new_project   // creates a directory named new_project
+cd new_project      // change the directory to new_project
+ 
+Now start a virtual environment. This allows you to separate the python dependencies being used for your project from 
+other projects. So you can run different versions of Django and python for different project. 
+
+
+pip install virtualenv   // This command will install virtualenv on your system which we will use to create a separate python environment for your project
+virtualenv my_vir_env    // this command will create a new virtual environement called my_virtual_env in your present workind directory
+source my_vir_env/bin/activate     //this command will activate the virtual environment. You will notice that the command promt has changed
+
+To deactivate your virtual environemnt just type following command :
+deactivate     // This command is will deactivate your virtual environment and your command promt will change back to normal. Use this command only after you have finsihed editi your project code.
+
+Note that this step has nothing to do with django specifically. you can create virtual environments for all your pythin projects if you are using differnt versions of python or django for differnt projects
+
+===============================================
+Step 1: Installing django in your virtual environment
+
+Make sure you have activated your virtual environment as shown first in Step 0.
+
+pip install django-toolbelt  // this will install Django 1.6 for you along with some other dependencies from pip which is python package manager
+                             // This step might take a minute or so
+
+
+
+==================================
+Step 2: Starting a project  
+
+Everything starts with a project in Django. 
+
+django-admin.py startproject new_project .  // NOTE : there is a dot after new_project. this will start the project in the current directory.
+                                            // Now you can start developing locally. But to push code up on heroku we need to follow the commands form heroku
+                                             //    website:
+                                           // https://devcenter.heroku.com/articles/getting-started-with-django
+
+
+===================================
+
+Step 3: Have a look at the settings.py file. it is the most impoartant file in your project. 
+
+==================================
+Start with models
+
+
+
+
+
+
+
